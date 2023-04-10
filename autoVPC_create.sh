@@ -188,5 +188,5 @@ for ((s=1; s<=$subnetCount; s++)); do
 done
 
 echo "Subnet 생성 완료!"
-
+echo "자동 설치 프로그램을 종료합니다."
 
