@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 성공_v5 2023.04.10 최명표
+# v6 2023.04.10 최명표
 
 ## ncloud 파일 경로로 수정
 ncloud='/root/CLI_1.1.12_20230223/cli_linux/ncloud '
@@ -121,7 +121,8 @@ done
 
 for ((s=1; s<=$subnetCount; s++)); do
   echo "서브넷 $s 생성 중..."
-
+  
+  zoneCode=""
   while [[ -z "$zoneCode" ]]; do
     echo -e " Subnet을 생성 할 Region을 아래에서 선택하세요:"
     echo -e "\t1. KR-1"
