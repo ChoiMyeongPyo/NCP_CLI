@@ -67,9 +67,11 @@ echo
 echo "VPC 생성중.. "
 createVpcOutput=$($ncloud vpc createVpc --regionCode $regionCode --vpcName $vpcName --ipv4CidrBlock $ipv4CidrBlock 2>&1)
 
-if [[ "$createVpcOutput" == "하나의 계정에는 3개의 VPC만 생성 가능합니다." ]]; then
-echo "VPC 생성에 실패했습니다. 하나의 계정에는 3개의 VPC만 생성 가능합니다."
-exit 1
+if [ $? -eq 0 ]; then
+  echo "VPC 생성 성공 !"
+else
+  echo "VPC 생성에 실패하였습니다."
+  exit
 fi
 
 vpcNo=$(echo "$createVpcOutput" | grep -oE '"vpcNo": "[^"]+"' | awk -F'"' '{print $4}')
